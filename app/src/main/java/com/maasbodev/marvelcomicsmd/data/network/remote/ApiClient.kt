@@ -1,5 +1,6 @@
 package com.maasbodev.marvelcomicsmd.data.network
 
+import com.maasbodev.marvelcomicsmd.data.network.remote.CharacterService
 import java.util.Date
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -27,7 +28,7 @@ object ApiClient {
 		.client(okHttpClient)
 		.build()
 
-	val marvelService: MarvelService = restAdapter.create(MarvelService::class.java)
+	val characterService: CharacterService = restAdapter.create(CharacterService::class.java)
 }
 
 private class QueryInterceptor : Interceptor {
