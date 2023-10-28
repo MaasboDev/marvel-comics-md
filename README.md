@@ -8,7 +8,7 @@ An Android app that allows users to explore Marvel Comics data through the Marve
 3. Build and run the app on your emulator or device.
 ## Features
 - Search for Marvel Comics characters.
-- View character details, including comic appearances.
-- Save favorite characters.
+- View character details, including comic appearances(TODO).
+- Save favorite characters(TODO).
 ## License
 This project is licensed under the [Apache License 2.0](LICENSE).
