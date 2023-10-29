@@ -1,8 +1,10 @@
 package com.maasbodev.marvelcomicsmd.data.entities
 
 data class Character(
-	val id: Int,
-	val title: String,
-	val description: String,
-	val thumbnail: String,
-)
+    override val id: Int,
+    override val title: String,
+    override val description: String,
+    override val thumbnail: String,
+    override val references: List<ReferenceList>,
+    override val urls: List<Url>
+) : MarvelItem

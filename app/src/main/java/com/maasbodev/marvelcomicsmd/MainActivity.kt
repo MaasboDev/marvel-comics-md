@@ -11,21 +11,22 @@ import com.maasbodev.marvelcomicsmd.ui.theme.MarvelComicsMDTheme
 
 class MainActivity : ComponentActivity() {
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContent {
-			MarvelApp {
-				Navigation()
-			}
-		}
-	}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MarvelApp {
+                Navigation()
+            }
+        }
+    }
 }
+
 // Minut 1:17:26
 @Composable
 fun MarvelApp(content: @Composable () -> Unit) {
-	MarvelComicsMDTheme {
-		Surface(color = MaterialTheme.colorScheme.background) {
-			content()
-		}
-	}
+    MarvelComicsMDTheme {
+        Surface(color = MaterialTheme.colorScheme.background) {
+            content()
+        }
+    }
 }

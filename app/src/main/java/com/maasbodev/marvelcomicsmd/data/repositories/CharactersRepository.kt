@@ -1,16 +1,30 @@
 package com.maasbodev.marvelcomicsmd.data.repositories
 
 import com.maasbodev.marvelcomicsmd.data.entities.Character
-import com.maasbodev.marvelcomicsmd.data.network.ApiClient
-import com.maasbodev.marvelcomicsmd.data.network.entities.asString
+import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.network.remote.CharacterService
+import javax.inject.Inject
 
-object CharactersRepository {
+class CharactersRepository @Inject constructor(private val service: CharacterService) :
+    Repository<Character>() {
 
-	suspend fun getCharacters(offset: Int): List<Character> {
-		val result = ApiClient.marvelService.getCharacters(offset, 100)
+    suspend fun get(): Result<List<Character>> = super.get {
+        service
+            .getCharacters(0, 100)
+            .data
+            .results
+            .map { it.asCharacter() }
+    }
 
-		return result.data.results.map {
-			Character(it.id, it.name, it.description, it.thumbnail.asString())
-		}
-	}
+    suspend fun find(id: Int): Result<Character> = super.find(
+        id,
+        findActionRemote = {
+            service
+                .findCharacter(id)
+                .data
+                .results
+                .first()
+                .asCharacter()
+        }
+    )
 }
