@@ -1,22 +1,51 @@
 package com.maasbodev.marvelcomicsmd.ui.navigation
 
+import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.Event
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import com.maasbodev.marvelcomicsmd.R
 
-sealed class NavItem(
-    internal val baseRoute: String,
+enum class NavItem(
+    val navCommand: NavCommand,
+    val icon: ImageVector,
+    @StringRes val title: Int,
+) {
+    HOME(NavCommand.ContentType(Feature.CHARACTERS), Icons.Default.Home, R.string.home),
+    SETTINGS(NavCommand.ContentType(Feature.SETTINGS), Icons.Default.Settings, R.string.settings),
+    CHARACTERS(
+        NavCommand.ContentTypeDetail(Feature.CHARACTERS),
+        Icons.Default.Face,
+        R.string.characters
+    ),
+    COMICS(NavCommand.ContentTypeDetail(Feature.COMICS), Icons.Default.Book, R.string.comics),
+    EVENTS(NavCommand.ContentTypeDetail(Feature.EVENTS), Icons.Default.Event, R.string.events),
+}
+
+sealed class NavCommand(
+    internal val feature: Feature,
+    internal val subRoute: String = "home",
     private val navArgs: List<NavArg> = emptyList(),
 ) {
-    object Characters : NavItem("characters")
-    object CharacterDetail : NavItem("characterDetail", listOf(NavArg.ItemId)) {
-        fun createRoute(itemId: Int): String = "$baseRoute/$itemId"
+    class ContentType(feature: Feature) : NavCommand(feature)
+
+    class ContentTypeDetail(feature: Feature) :
+        NavCommand(feature, "detail", listOf(NavArg.ItemId)) {
+        fun createRoute(itemId: Int) = "${feature.route}/$subRoute/$itemId"
     }
 
     val route = run {
         val argValues = navArgs.map { "{${it.key}}" }
-        listOf(baseRoute)
+        listOf(feature.route)
+            .plus(subRoute)
             .plus(argValues)
-            .joinToString("/")
+            .joinToString(separator = "/")
     }
 
     val args = navArgs.map {
