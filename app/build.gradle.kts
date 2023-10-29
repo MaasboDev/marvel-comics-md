@@ -4,8 +4,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.kapt")
-    id("com.google.dagger.hilt.android") version "2.44.2" apply false
+    id("com.google.dagger.hilt.android")
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
+    id("kotlin-kapt")
 }
 
 android {
@@ -78,8 +79,8 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    annotationProcessor("com.google.dagger:hilt-compiler:2.44.2")
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.44")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     implementation("io.coil-kt:coil-compose:2.4.0")
@@ -99,4 +100,9 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
