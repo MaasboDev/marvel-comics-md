@@ -1,6 +1,5 @@
-package com.maasbodev.marvelcomicsmd.ui
+package com.maasbodev.marvelcomicsmd
 
-import com.maasbodev.marvelcomicsmd.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
