@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.Packaging
+import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -25,8 +26,12 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField("String", "MARVEL_PRIVATE_KEY", "\"MARVEL_PRIVATE_KEY\"")
-        buildConfigField("String", "MARVEL_PUBLIC_KEY", "\"MARVEL_PUBLIC_KEY\"")
+        val p = Properties()
+        p.load(project.rootProject.file("local.properties").reader())
+        val priv: String = p.getProperty("MARVEL_PRIVATE_KEY")
+        val pub: String = p.getProperty("MARVEL_PUBLIC_KEY")
+        buildConfigField("String", "MARVEL_PRIVATE_KEY", "\"$priv\"")
+        buildConfigField("String", "MARVEL_PUBLIC_KEY", "\"$pub\"")
     }
 
     buildTypes {

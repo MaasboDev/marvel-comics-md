@@ -50,7 +50,7 @@ fun MarvelApp(appState: MarvelAppState = rememberMarvelAppState()) {
                                     onClick = { appState.onUpClick() },
                                 )
                             }
-                        }
+                        },
                     )
                 },
                 bottomBar = {

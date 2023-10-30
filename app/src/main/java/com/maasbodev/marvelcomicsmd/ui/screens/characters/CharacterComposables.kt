@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.maasbodev.marvelcomicsmd.data.entities.Character
+import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemDetailScreen
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemsListScreen
 
 @Composable
@@ -25,4 +26,5 @@ fun CharactersScreen(
 fun CharacterDetailScreen(viewModel: CharactersDetailViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsState()
 
+    MarvelItemDetailScreen(loading = state.loading, marvelItem = state.character)
 }
