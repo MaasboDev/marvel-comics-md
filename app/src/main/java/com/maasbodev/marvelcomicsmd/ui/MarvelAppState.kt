@@ -1,5 +1,6 @@
 package com.maasbodev.marvelcomicsmd.ui
 
+import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun rememberMarvelAppState(
-    scaffoldState: androidx.compose.material3.DrawerState = rememberDrawerState(DrawerValue.Closed),
+    scaffoldState: DrawerState = rememberDrawerState(DrawerValue.Closed),
     navController: NavHostController = rememberNavController(),
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ): MarvelAppState = remember(scaffoldState, navController, coroutineScope) {
@@ -23,7 +24,7 @@ fun rememberMarvelAppState(
 }
 
 class MarvelAppState(
-    val drawerState: androidx.compose.material3.DrawerState,
+    val drawerState: DrawerState,
     val navController: NavHostController,
     private val coroutineScope: CoroutineScope,
 ) {
@@ -37,7 +38,7 @@ class MarvelAppState(
             ?: ""
 
     val showUpNavigation: Boolean
-        @Composable get() = !NavItem.values().map { it.navCommand.route }.contains(currentRoute)
+        @Composable get() = !NavItem.entries.map { it.navCommand.route }.contains(currentRoute)
 
     val showBottomNavigation: Boolean
         @Composable get() = BOTTOM_NAV_OPTIONS.any { currentRoute.contains(it.navCommand.feature.route) }

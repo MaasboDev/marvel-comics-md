@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "407550622913",
+    "project_id": "marvel-api-md",
+    "storage_bucket": "marvel-api-md.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407550622913:android:278999ea117b5641f3e840",
+        "android_client_info": {
+          "package_name": "com.maasbodev.marvelcomicsmd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407550622913-a7u0k8tulkfe56b8g4qse5foghcrqh1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCtZ5rFa7YxyxxcskkX-6LyQHy6Lw8mZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407550622913-a7u0k8tulkfe56b8g4qse5foghcrqh1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,7 +3,8 @@ package com.maasbodev.marvelcomicsmd.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -27,6 +28,7 @@ import com.maasbodev.marvelcomicsmd.ui.theme.MarvelComicsMDTheme
 
 @Composable
 fun MarvelApp(appState: MarvelAppState = rememberMarvelAppState()) {
+
     MarvelScreen {
         ModalNavigationDrawer(
             drawerState = appState.drawerState,
@@ -42,15 +44,19 @@ fun MarvelApp(appState: MarvelAppState = rememberMarvelAppState()) {
             Scaffold(
                 topBar = {
                     MarvelTopAppBar(
-                        title = { Text(stringResource(R.string.app_name)) },
+                        title = { Text(stringResource(id = R.string.app_name)) },
                         navigationIcon = {
                             if (appState.showUpNavigation) {
                                 AppBarIcon(
-                                    imageVector = Icons.Default.ArrowBack,
-                                    onClick = { appState.onUpClick() },
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    onClick = { appState.onUpClick() })
+                            } else {
+                                AppBarIcon(
+                                    imageVector = Icons.Default.Menu,
+                                    onClick = { appState.onMenuClick() }
                                 )
                             }
-                        },
+                        }
                     )
                 },
                 bottomBar = {
@@ -75,6 +81,7 @@ fun MarvelApp(appState: MarvelAppState = rememberMarvelAppState()) {
 @Composable
 fun MarvelScreen(content: @Composable () -> Unit) {
     MarvelComicsMDTheme {
+        // A surface container using the 'background' color from the theme
         Surface(color = MaterialTheme.colorScheme.background) {
             content()
         }
@@ -82,10 +89,11 @@ fun MarvelScreen(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun SetStatusBarColorEffect(
+private fun SetStatusBarColorEffect(
     color: Color = MaterialTheme.colorScheme.secondary,
-    systemUiController: SystemUiController = rememberSystemUiController(),
+    systemUiController: SystemUiController = rememberSystemUiController()
 ) {
+
     SideEffect {
         systemUiController.setStatusBarColor(color)
     }
