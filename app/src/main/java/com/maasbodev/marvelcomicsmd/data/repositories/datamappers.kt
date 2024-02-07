@@ -1,59 +1,62 @@
 package com.maasbodev.marvelcomicsmd.data.repositories
 
-import com.maasbodev.marvelcomicsmd.data.entities.Character
-import com.maasbodev.marvelcomicsmd.data.entities.Comic
-import com.maasbodev.marvelcomicsmd.data.entities.Event
-import com.maasbodev.marvelcomicsmd.data.entities.Reference
-import com.maasbodev.marvelcomicsmd.data.entities.ReferenceList
-import com.maasbodev.marvelcomicsmd.data.entities.Url
 import com.maasbodev.marvelcomicsmd.data.network.entities.ApiCharacter
 import com.maasbodev.marvelcomicsmd.data.network.entities.ApiComic
 import com.maasbodev.marvelcomicsmd.data.network.entities.ApiEvent
 import com.maasbodev.marvelcomicsmd.data.network.entities.ApiReferenceList
 import com.maasbodev.marvelcomicsmd.data.network.entities.asString
+import com.maasbodev.marvelcomicsmd.domain.entities.Character
+import com.maasbodev.marvelcomicsmd.domain.entities.Comic
+import com.maasbodev.marvelcomicsmd.domain.entities.Event
+import com.maasbodev.marvelcomicsmd.domain.entities.Reference
+import com.maasbodev.marvelcomicsmd.domain.entities.ReferenceList
+import com.maasbodev.marvelcomicsmd.domain.entities.Url
 
-fun ApiCharacter.asCharacter(): Character = Character(
-    id,
-    name,
-    description,
-    thumbnail.asString(),
-    listOf(
-        comics.toDomain(ReferenceList.Type.COMIC),
-        events.toDomain(ReferenceList.Type.EVENT),
-        series.toDomain(ReferenceList.Type.SERIES),
-        stories.toDomain(ReferenceList.Type.STORY)
-    ),
-    urls.map { Url(it.type, it.url) }
-)
+fun ApiCharacter.asCharacter(): Character =
+    Character(
+        id,
+        name,
+        description,
+        thumbnail.asString(),
+        listOf(
+            comics.toDomain(ReferenceList.Type.COMIC),
+            events.toDomain(ReferenceList.Type.EVENT),
+            series.toDomain(ReferenceList.Type.SERIES),
+            stories.toDomain(ReferenceList.Type.STORY)
+        ),
+        urls.map { Url(it.type, it.url) }
+    )
 
-fun ApiEvent.asEvent(): Event = Event(
-    id,
-    title,
-    description,
-    thumbnail.asString(),
-    listOf(
-        comics.toDomain(ReferenceList.Type.COMIC),
-        characters.toDomain(ReferenceList.Type.CHARACTER),
-        series.toDomain(ReferenceList.Type.SERIES),
-        stories.toDomain(ReferenceList.Type.STORY)
-    ),
-    urls.map { Url(it.type, it.url) }
-)
+fun ApiEvent.asEvent(): Event =
+    Event(
+        id,
+        title,
+        description,
+        thumbnail.asString(),
+        listOf(
+            comics.toDomain(ReferenceList.Type.COMIC),
+            characters.toDomain(ReferenceList.Type.CHARACTER),
+            series.toDomain(ReferenceList.Type.SERIES),
+            stories.toDomain(ReferenceList.Type.STORY)
+        ),
+        urls.map { Url(it.type, it.url) }
+    )
 
-fun ApiComic.asComic(): Comic = Comic(
-    id,
-    title,
-    description ?: "",
-    thumbnail.asString(),
-    format.toDomain(),
-    listOf(
-        characters.toDomain(ReferenceList.Type.CHARACTER),
-        events.toDomain(ReferenceList.Type.EVENT),
-        series.toDomain(ReferenceList.Type.SERIES),
-        stories.toDomain(ReferenceList.Type.STORY)
-    ),
-    urls.map { Url(it.type, it.url) }
-)
+fun ApiComic.asComic(): Comic =
+    Comic(
+        id,
+        title,
+        description ?: "",
+        thumbnail.asString(),
+        format.toDomain(),
+        listOf(
+            characters.toDomain(ReferenceList.Type.CHARACTER),
+            events.toDomain(ReferenceList.Type.EVENT),
+            series.toDomain(ReferenceList.Type.SERIES),
+            stories.toDomain(ReferenceList.Type.STORY)
+        ),
+        urls.map { Url(it.type, it.url) }
+    )
 
 private fun String.toDomain(): Comic.Format = when (this) {
     "magazine" -> Comic.Format.MAGAZINE

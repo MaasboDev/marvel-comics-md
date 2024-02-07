@@ -1,18 +1,13 @@
-package com.maasbodev.marvelcomicsmd.data.entities
+package com.maasbodev.marvelcomicsmd.data
 
 import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
+import com.maasbodev.marvelcomicsmd.domain.entities.Error
 import java.io.IOException
 import retrofit2.HttpException
 
 typealias Result<T> = Either<Error, T>
-
-sealed class Error {
-    class Server(val code: Int) : Error()
-    object Connectivity : Error()
-    class Unknown(val message: String) : Error()
-}
 
 fun Exception.toError(): Error = when (this) {
     is IOException -> Error.Connectivity

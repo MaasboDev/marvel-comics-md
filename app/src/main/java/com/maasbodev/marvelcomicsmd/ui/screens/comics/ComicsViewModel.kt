@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import arrow.core.Either
 import arrow.core.right
-import com.maasbodev.marvelcomicsmd.data.entities.Comic
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
 import com.maasbodev.marvelcomicsmd.data.repositories.ComicsRepository
+import com.maasbodev.marvelcomicsmd.domain.entities.Comic
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow

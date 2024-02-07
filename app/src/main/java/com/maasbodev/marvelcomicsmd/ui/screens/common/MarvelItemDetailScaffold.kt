@@ -10,8 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ShareCompat
-import com.maasbodev.marvelcomicsmd.data.entities.MarvelItem
-import com.maasbodev.marvelcomicsmd.data.entities.Url
+import com.maasbodev.marvelcomicsmd.domain.entities.MarvelItem
+import com.maasbodev.marvelcomicsmd.domain.entities.Url
 
 @Composable
 fun MarvelItemDetailScaffold(

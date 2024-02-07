@@ -19,7 +19,7 @@ import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.maasbodev.marvelcomicsmd.R
-import com.maasbodev.marvelcomicsmd.data.entities.Comic
+import com.maasbodev.marvelcomicsmd.domain.entities.Comic
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemDetailScreen
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemsListScreen
 import kotlinx.coroutines.launch

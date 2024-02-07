@@ -26,8 +26,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
-import com.maasbodev.marvelcomicsmd.data.entities.MarvelItem
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
+import com.maasbodev.marvelcomicsmd.domain.entities.MarvelItem
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)

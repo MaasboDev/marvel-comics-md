@@ -81,7 +81,6 @@ fun MarvelApp(appState: MarvelAppState = rememberMarvelAppState()) {
 @Composable
 fun MarvelScreen(content: @Composable () -> Unit) {
     MarvelComicsMDTheme {
-        // A surface container using the 'background' color from the theme
         Surface(color = MaterialTheme.colorScheme.background) {
             content()
         }

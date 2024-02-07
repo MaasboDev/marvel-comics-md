@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.maasbodev.marvelcomicsmd.data.entities.Character
+import com.maasbodev.marvelcomicsmd.domain.entities.Character
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemDetailScreen
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemsListScreen
 

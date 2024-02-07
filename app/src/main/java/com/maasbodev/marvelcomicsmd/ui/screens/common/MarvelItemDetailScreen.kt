@@ -32,10 +32,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.maasbodev.marvelcomicsmd.R
-import com.maasbodev.marvelcomicsmd.data.entities.MarvelItem
-import com.maasbodev.marvelcomicsmd.data.entities.Reference
-import com.maasbodev.marvelcomicsmd.data.entities.ReferenceList
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
+import com.maasbodev.marvelcomicsmd.domain.entities.MarvelItem
+import com.maasbodev.marvelcomicsmd.domain.entities.Reference
+import com.maasbodev.marvelcomicsmd.domain.entities.ReferenceList
 
 @Composable
 fun MarvelItemDetailScreen(loading: Boolean, marvelItem: Result<MarvelItem?>) {

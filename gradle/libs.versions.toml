@@ -23,6 +23,7 @@ lifecycleRuntimeKtx = "2.7.0"
 navigationCompose = "2.7.6"
 retrofit = "2.9.0"
 retrofitOkhttp = "4.10.0"
+org-jetbrains-kotlin-jvm = "1.9.22"
 
 [libraries]
 androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -75,3 +76,4 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }

@@ -12,7 +12,6 @@ import androidx.compose.ui.test.performScrollToIndex
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import arrow.core.Either
-import com.maasbodev.marvelcomicsmd.data.entities.Comic
 import com.maasbodev.marvelcomicsmd.ui.screens.common.MarvelItemsListScreen
 import org.junit.Before
 import org.junit.Rule
@@ -32,13 +31,13 @@ class MarvelItemsListScreenTest {
 
     private val ctx = InstrumentationRegistry.getInstrumentation().targetContext
 
-    private val items: List<Comic> = (1..100).map {
-        Comic(
+    private val items: List<com.maasbodev.marvelcomicsmd.domain.entities.Comic> = (1..100).map {
+        com.maasbodev.marvelcomicsmd.domain.entities.Comic(
             id = it,
             title = "Title $it",
             description = "Description $it",
             thumbnail = "",
-            format = Comic.Format.COMIC,
+            format = com.maasbodev.marvelcomicsmd.domain.entities.Comic.Format.COMIC,
             urls = emptyList(),
             references = emptyList()
         )

@@ -4,9 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import arrow.core.Either
-import com.maasbodev.marvelcomicsmd.data.entities.Event
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
 import com.maasbodev.marvelcomicsmd.data.repositories.EventsRepository
+import com.maasbodev.marvelcomicsmd.domain.entities.Event
 import com.maasbodev.marvelcomicsmd.ui.navigation.NavArg
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.maasbodev.marvelcomicsmd.data.entities
+package com.maasbodev.marvelcomicsmd.domain.entities
 
 data class Comic(
     override val id: Int,

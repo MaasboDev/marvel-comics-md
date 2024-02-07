@@ -1,4 +1,4 @@
-package com.maasbodev.marvelcomicsmd.data.entities
+package com.maasbodev.marvelcomicsmd.domain.entities
 
 data class Event(
     override val id: Int,

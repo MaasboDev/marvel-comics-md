@@ -1,8 +1,8 @@
 package com.maasbodev.marvelcomicsmd.data.repositories
 
-import com.maasbodev.marvelcomicsmd.data.entities.Event
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
 import com.maasbodev.marvelcomicsmd.data.network.remote.EventsService
+import com.maasbodev.marvelcomicsmd.domain.entities.Event
 import javax.inject.Inject
 
 class EventsRepository @Inject constructor(private val service: EventsService) :

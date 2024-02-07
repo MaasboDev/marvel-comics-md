@@ -1,8 +1,8 @@
 package com.maasbodev.marvelcomicsmd.data.repositories
 
-import com.maasbodev.marvelcomicsmd.data.entities.Character
-import com.maasbodev.marvelcomicsmd.data.entities.Result
+import com.maasbodev.marvelcomicsmd.data.Result
 import com.maasbodev.marvelcomicsmd.data.network.remote.CharacterService
+import com.maasbodev.marvelcomicsmd.domain.entities.Character
 import javax.inject.Inject
 
 class CharactersRepository @Inject constructor(private val service: CharacterService) :

@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.maasbodev.marvelcomicsmd.R
-import com.maasbodev.marvelcomicsmd.data.entities.MarvelItem
+import com.maasbodev.marvelcomicsmd.domain.entities.MarvelItem
 
 @Composable
 fun <T : MarvelItem> MarvelItemBottomPreview(item: T?, onGoToDetail: (T) -> Unit) {

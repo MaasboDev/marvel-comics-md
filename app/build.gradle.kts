@@ -66,6 +66,10 @@ android {
 }
 
 dependencies {
+	implementation(project(":data"))
+	implementation(project(":domain"))
+	implementation(project(":usecases"))
+
 	val composeBom = platform(libs.androidx.compose.bom)
 	implementation(composeBom)
 	androidTestImplementation(composeBom)
